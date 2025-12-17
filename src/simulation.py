@@ -25,7 +25,7 @@ def generate_book():
 
     if title == "Краткая история времени" or title == "Большая советская экономика":
         """
-        Проверяем, является ли книга худ. литературой
+        Проверяем, является ли книга худ. литературой или нет
         """
         return NonFictionBook(title, author, year, genre, isbn, pages)
     else:

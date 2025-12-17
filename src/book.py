@@ -1,4 +1,5 @@
 class Book:
+    """Создание базового класса"""
     def __init__(self, title: str, author: str, year: int, genre: str, isbn: str) -> None:
         self.title = title
         self.author = author
@@ -7,10 +8,19 @@ class Book:
         self.isbn = isbn
 
     def __repr__(self) -> str:
+        """
+        Вывод определенных атрибутов класса
+        """
         return f'Произведение "{self.title}", написанное автором {self.author} в {self.year}'
 
 
 class NonFictionBook(Book):
+    """
+    Класс, наследуемый от Book
+    Нужен для создания и добавления книг
+    нехудожественной литературы, а так же
+    добавляет атрибут класса pages
+    """
     def __init__(self, title: str, author: str, year: int, genre: str, isbn: str, pages: int) -> None:
         super().__init__(title, author, year, genre, isbn)
         self.pages: int = pages
@@ -20,6 +30,10 @@ class NonFictionBook(Book):
 
 
 class FictionBook(Book):
+    """Класс, наследуемый от Book
+    Нужен для создания и добавления книг
+    художественной литературы, а так же
+    добавляет атрибут класса pages"""
     def __init__(self, title: str, author: str, year: int, genre: str, isbn: str, pages: int) -> None:
         super().__init__(title, author, year, genre, isbn)
         self.pages = pages

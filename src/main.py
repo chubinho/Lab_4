@@ -4,6 +4,7 @@ from src.book import FictionBook, NonFictionBook
 
 
 def main():
+    """Запуск взаимодействия с пользователем"""
     lib = Library()
     print("БИБЛИОТЕКА")
     print("Команды:")

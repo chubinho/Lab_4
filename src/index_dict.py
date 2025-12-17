@@ -3,12 +3,14 @@ from src.book import Book
 
 
 class IndexDict:
+    """Класс индексации книг"""
     def __init__(self) -> None:
         self.ISBN: dict[str, Book] = {}
         self.year: dict[int, list[Book]] = {}
         self.author: dict[str, list[Book]] = {}
 
     def add_book(self, book: Book) -> None:
+        """Метод добавления книги"""
         self.ISBN[book.isbn] = book
 
         if book.author in self.author:
@@ -23,6 +25,7 @@ class IndexDict:
 
 
     def remove_book(self, book: Book) -> None:
+        """Метод удаления книги"""
         del self.ISBN[book.isbn]
 
         self.author[book.author].remove(book)
@@ -35,6 +38,10 @@ class IndexDict:
 
 
     def __getitem__(self, key: Union[int, str]) -> Union[Book, list[Book]]:
+        """
+        Магический метод, возвращающий
+        книгу по ключу
+        """
         if isinstance(key, int):
             if key in self.year:
                 return self.year[key]
@@ -51,7 +58,9 @@ class IndexDict:
             raise KeyError("Передан неверный ключ")
 
     def __len__(self):
+        """ВОзвращает длину словаря книг"""
         return len(self.ISBN)
 
     def __contains__(self, isbn: str) -> bool:
+        """Позволяет использовать len"""
         return isbn in self.ISBN
