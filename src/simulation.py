@@ -106,4 +106,16 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
     print("Симуляция завершена")
 
 
-run_simulation()
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1:
+        steps = int(sys.argv[1])
+    else:
+        steps = 20
+
+    if len(sys.argv) > 2:
+        seed = int(sys.argv[2])
+    else:
+        seed = None
+
+    run_simulation(steps=steps, seed=seed)

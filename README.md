@@ -32,7 +32,7 @@ Lab_4
 ```
 
 ## Запуск симуляции
-```python src\simulation.py```
+```python src\simulation.py <steps> <seed>```
 
 ## Запуск Cli
 ``` src\main.py```
